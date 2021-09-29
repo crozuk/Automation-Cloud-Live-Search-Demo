@@ -1,7 +1,7 @@
 //Express server
 var express = require('express');
 var app = express();
-const port = 3010;
+const port = 3001;
 
 //Static file path
 app.use(express.static('static'));
