@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Live Search Demo</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <h1>Automation Cloud</h1>
@@ -18,10 +18,10 @@
 
 <script>
 function myFunction() {
-  var form_input = document.querySelector("input[name='search_term").value;
+  var form_input = $("input[name='search_term").val();
   //alert(form_input);
   var html = "<p>" + form_input + "</p>";
-  document.getElementById("results").innerHTML = html;
+  $("#results").html(html);
 }
 </script>
 
