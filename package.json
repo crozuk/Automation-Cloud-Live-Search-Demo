@@ -1,5 +1,5 @@
 {
-  "name": "Automation Cloud Live Search Demo",
+  "name": "Automation-Cloud-Live-Search-Demo",
   "version": "1.0.0",
   "dependencies": {
     "express": "^4.17.1"
