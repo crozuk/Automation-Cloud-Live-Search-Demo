@@ -9,7 +9,7 @@
 <h2>Live Search Test</h2>
 <p>Enter search term below -</p>
 
-<form action="search" onsubmit="myFunction()" method="post">
+<form action="javascript:void(0);" onsubmit="myFunction()" method="post">
   Input: <input type="text" name="search_term">
   <input type="submit" value="Submit">
 </form>
@@ -20,6 +20,9 @@
 <script>
 function myFunction() {
   var form_input = $("input[name='search_term").val();
+  response = $.post( "search", { search_term: "Test" }, function( data ) {
+  console.log(data);
+}, "json");
   var array = [];
   console.log(form_input)
   var html = "<p>" + form_input + "</p>";
