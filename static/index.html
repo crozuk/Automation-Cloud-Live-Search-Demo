@@ -27,7 +27,10 @@
   margin-bottom: 0;
 }
 #results a {
-  margin-bottom: 20px;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  overflow: scroll;
 }
 
 </style>
@@ -44,23 +47,22 @@ function myFunction() {
     $.each(result_set, function(i,item){
           html += '<h3>' + item.title + '</h3>';
           html += '<p>' + item.snippet + '</p>';
-          html += '<a href ="' + item.url + '">' + item.url + "</a>";
+          html += '<a target="_blank" href ="' + item.url + '">' + item.url + "</a>";
     });
     return html;
 });
 }, "json");
-  var array = [];
   console.log(form_input)
   var html = "<p>" + "Loading Search Results..." + "</p>";
   $("#results").html(html);
-  $( "#results p" ).click(function() {
-  selected = $("#results p").text();
-  var array = [];
+  $( "#results h3" ).click(function() {
+    selected = $(this).text();
+    var array = [];
     array.push({
         title: selected
+    });
+    console.log(array);
   });
-  console.log(array);
-});
 }
 
 </script>
