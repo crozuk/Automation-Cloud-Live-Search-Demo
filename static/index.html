@@ -29,6 +29,7 @@ function myFunction() {
     $.each(result_set, function(i,item){
           html += '<h3>' + item.title + '</h3>';
           html += '<p>' + item.snippet + '</p>';
+          html += '<p>' + item.url + '</p>';
     });
     return html;
 });
