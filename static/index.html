@@ -20,7 +20,7 @@
 <script>
 function myFunction() {
   var form_input = $("input[name='search_term").val();
-  response = $.post( "search", { search_term: "Test" }, function( data ) {
+  response = $.post( "search", { search_term: form_input }, function( data ) {
   console.log(data);
 }, "json");
   var array = [];
