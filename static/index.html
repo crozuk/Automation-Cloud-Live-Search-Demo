@@ -50,19 +50,11 @@ function myFunction() {
           html += '<a target="_blank" href ="' + item.url + '">' + item.url + "</a>";
     });
     return html;
-});
-}, "json");
+  });
+  }, "json");
   console.log(form_input)
   var html = "<p>" + "Loading Search Results..." + "</p>";
-  $("#results").html(html);
-  $( "#results h3" ).click(function() {
-    selected = $(this).text();
-    var array = [];
-    array.push({
-        title: selected
-    });
-    console.log(array);
-  });
+  $("#results").html(html)
 }
 
 </script>
