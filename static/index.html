@@ -27,7 +27,8 @@ function myFunction() {
   $('#results').html(function(){
     var html = '';
     $.each(result_set, function(i,item){
-          html += '<p>' + item.title + '</p>';
+          html += '<h3>' + item.title + '</h3>';
+          html += '<p>' + item.snippet + '</p>';
     });
     return html;
 });
