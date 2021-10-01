@@ -22,7 +22,15 @@ function myFunction() {
   var form_input = $("input[name='search_term").val();
   response = $.post( "search", { search_term: form_input }, function( data ) {
   console.log(data);
-  //result_set = data.data;
+  result_set = data.data;
+  console.log(result_set);
+  $('#results').html(function(){
+    var html = '';
+    $.each(result_set, function(i,item){
+          html += '<p>' + item.title + '</p>';
+    });
+    return html;
+});
 }, "json");
   var array = [];
   console.log(form_input)
