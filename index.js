@@ -1,3 +1,4 @@
+//App Secret Key
 var secret_key = '640c4a5621c055a20267eebd06495463dc02c040be328945';
 
 //Express server
@@ -5,6 +6,7 @@ var express = require('express');
 var app = express();
 const port = 3001;
 
+//Parse and Fetch packages
 var parse = require('body-parser');
 var fetch = require('node-fetch');
 
@@ -15,6 +17,8 @@ app.use(express.static('static'));
 app.get('/', function(req, res){
   res.sendFile('static/index.html');
 });
+
+//Search endpoint
 app.post('/search', parse.urlencoded(), async function(req, res) {
   console.log("body is", req.body);
   var search_term = req.body.search_term;
@@ -36,11 +40,13 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
   var results = await pollJobOutput(body.id, "SearchResults");
   res.send(results);
 });
+
 //Start server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`)
 })
 
+//Poll for output
 async function pollJobOutput(jobId, outputKey){
   var response = await fetch("https://api.automationcloud.net/jobs/" + jobId + "/outputs/" + outputKey, {
     headers: {
@@ -54,7 +60,7 @@ async function pollJobOutput(jobId, outputKey){
   }
   return body;
 };
-
+//Timeout function
 function timeout(ms){
   return new Promise(resolve => setTimeout(resolve, ms))
 }
