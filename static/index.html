@@ -22,7 +22,7 @@ function myFunction() {
   var form_input = $("input[name='search_term").val();
   response = $.post( "search", { search_term: form_input }, function( data ) {
   console.log(data);
-  result_set = data.data;
+  //result_set = data.data;
 }, "json");
   var array = [];
   console.log(form_input)
