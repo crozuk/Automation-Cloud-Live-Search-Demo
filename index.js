@@ -1,3 +1,9 @@
+// Enviroment Variables
+require('dotenv').config();
+const app_secret = process.env.secret;
+//Log App Secret Key
+console.log(app_secret);
+
 //App Secret Key
 var secret_key = '640c4a5621c055a20267eebd06495463dc02c040be328945';
 
