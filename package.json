@@ -1,5 +1,5 @@
 {
-  "name": "Automation-Cloud-Live-Search-Demo",
+  "name": "automation-cloud-live-search-demo",
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.19.0",
