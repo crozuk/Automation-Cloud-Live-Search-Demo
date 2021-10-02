@@ -46,7 +46,7 @@ function getResults() {
   response = $.post( "search", { search_term: form_input }, function( data ) {
   console.log(data);
   result_set = data.data;
-  console.log(result_set);
+  //console.log(result_set);
   $('#results').html(function(){
     var html = '';
     $.each(result_set, function(i,item){

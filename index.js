@@ -20,9 +20,9 @@ app.get('/', function(req, res){
 
 //Search endpoint
 app.post('/search', parse.urlencoded(), async function(req, res) {
-  console.log("body is", req.body);
+  console.log(req.body);
   var search_term = req.body.search_term;
-  console.log(search_term);
+  //console.log(search_term);
   var response = await fetch("https://api.automationcloud.net/jobs", {
     method: "post",
     headers: {
