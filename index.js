@@ -4,8 +4,6 @@ const app_secret = process.env.secret;
 //Log App Secret Key
 console.log(app_secret);
 
-
-
 //Express server
 var express = require('express');
 var app = express();
