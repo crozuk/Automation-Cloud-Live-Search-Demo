@@ -63,15 +63,19 @@ function getResults() {
 };
 
 //Process selected item
-function selectedItem() {
-    console.log('Running selectedItem function');
+function selectedItem(selected) {
+  var array = [];
+  array.push({
+    title: selected
+  });
+  console.log(array);
 }
 
 //Bind click event
 $("#results").on("click", "h3", function(){
   var selectedResult = $(this).text();
   console.log(selectedResult);
-  selectedItem();
+  selectedItem(selectedResult);
 });
 </script>
 
