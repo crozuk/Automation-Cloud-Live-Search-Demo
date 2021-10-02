@@ -1,0 +1,19 @@
+body {
+    padding: 5%;
+}
+#results {
+    padding-top: 20px;
+}
+#results p {
+    margin-bottom: 0;
+}
+#results a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    overflow: scroll;
+}
+#results h3 {
+    cursor: pointer;
+    text-decoration: underline;
+}
