@@ -5,7 +5,7 @@ const app_secret = process.env.secret;
 console.log(app_secret);
 
 //App Secret Key
-var secret_key = '640c4a5621c055a20267eebd06495463dc02c040be328945';
+//var secret_key = '640c4a5621c055a20267eebd06495463dc02c040be328945';
 
 //Express server
 var express = require('express');
@@ -32,7 +32,7 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
   var response = await fetch("https://api.automationcloud.net/jobs", {
     method: "post",
     headers: {
-      authorization: "Basic " + Buffer.from(secret_key + ":").toString("base64")
+      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
     },
     body: JSON.stringify({
       serviceId: "20ea0e52-1c0d-41ba-9ed2-4b50ca847f31",
@@ -56,7 +56,7 @@ app.listen(port, () => {
 async function pollJobOutput(jobId, outputKey){
   var response = await fetch("https://api.automationcloud.net/jobs/" + jobId + "/outputs/" + outputKey, {
     headers: {
-      authorization: "Basic " + Buffer.from(secret_key + ":").toString("base64")
+      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
     }
   });
   var body = await response.json();
