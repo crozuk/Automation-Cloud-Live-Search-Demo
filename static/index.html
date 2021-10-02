@@ -3,6 +3,7 @@
 <head>
   <title>Live Search Demo</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/js/liveSearch.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-reboot@4.4.1/dist/reboot.min.css" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet" type="text/css">
 </head>
@@ -18,48 +19,6 @@
 <div id="results">
 
 </div>
-
-<script>
-//Get search results from user input 
-function getResults() {
-  var form_input = $("input[name='search_term").val();
-  response = $.post( "search", { search_term: form_input }, function( data ) {
-  console.log(data);
-  jobId = data.jobId;
-  console.log(jobId)
-  result_set = data.data;
-  //console.log(result_set);
-  $('#results').html(function(){
-    var html = '';
-    $.each(result_set, function(i,item){
-          html += '<h3>' + item.title + '</h3>';
-          html += '<p>' + item.snippet + '</p>';
-          html += '<a target="_blank" href ="' + item.url + '">' + item.url + "</a>";
-    });
-    return html;
-  });
-  }, "json");
-  console.log(form_input)
-  var html = "<p>" + "Loading Search Results..." + "</p>";
-  $("#results").html(html)
-};
-
-//Process selected item
-function selectedItem(selected) {
-  var array = [];
-  array.push({
-    title: selected
-  });
-  console.log(array);
-}
-
-//Bind click event
-$("#results").on("click", "h3", function(){
-  var selectedResult = $(this).text();
-  console.log(selectedResult);
-  selectedItem(selectedResult);
-});
-</script>
 
 </body>
 </html>
