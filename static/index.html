@@ -10,7 +10,7 @@
 <h2>Live Search Test</h2>
 <p>Enter search term below -</p>
 
-<form action="javascript:void(0);" onsubmit="myFunction()" method="post">
+<form action="javascript:void(0);" onsubmit="getResults()" method="post">
   Input: <input type="text" name="search_term">
   <input type="submit" value="Submit">
 </form>
@@ -32,11 +32,16 @@
   padding-bottom: 20px;
   overflow: scroll;
 }
-
+#results h3 {
+  cursor: pointer;
+  text-decoration: underline;
+}
 </style>
 
 <script>
-function myFunction() {
+
+//Get search results from user input 
+function getResults() {
   var form_input = $("input[name='search_term").val();
   response = $.post( "search", { search_term: form_input }, function( data ) {
   console.log(data);
@@ -55,8 +60,19 @@ function myFunction() {
   console.log(form_input)
   var html = "<p>" + "Loading Search Results..." + "</p>";
   $("#results").html(html)
+};
+
+//Process selected item
+function selectedItem() {
+    console.log('Running selectedItem function');
 }
 
+//Bind click event
+$("#results").on("click", "h3", function(){
+  var selectedResult = $(this).text();
+  console.log(selectedResult);
+  selectedItem();
+});
 </script>
 
 </body>
