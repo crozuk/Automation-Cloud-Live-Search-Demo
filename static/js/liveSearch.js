@@ -33,5 +33,6 @@ $(document).ready(function () {
         var selectedResult = $(this).text();
         console.log(selectedResult);
         selectedItem(selectedResult);
+        alert("Selected - " + selectedResult);
     }); 
 });
