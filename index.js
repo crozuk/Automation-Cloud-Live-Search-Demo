@@ -41,7 +41,7 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
   })
   var body = await response.json();
   job_id = body.id;
-  console.log(job_id);
+  //console.log(job_id);
   var results = await pollJobOutput(body.id, "SearchResults");
   res.send(results);
 });
