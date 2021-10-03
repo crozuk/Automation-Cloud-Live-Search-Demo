@@ -40,7 +40,7 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
     })
   })
   var body = await response.json();
-  var job_id = body.id;
+  job_id = body.id;
   console.log(job_id);
   var results = await pollJobOutput(body.id, "SearchResults");
   res.send(results);
@@ -48,7 +48,21 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
 
 //Select item endpoint
 app.post('/selected', parse.urlencoded(), async function(req, res) {
-  console.log(req.body);
+  console.log(job_id);
+  var data = req.body;
+  var response = await fetch("https://api.automationcloud.net/jobs/" + job_id + "/inputs", {
+    method: "post",
+    headers: {
+      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+    },
+    body: JSON.stringify({
+        "key": "selected_site",
+        "data": {
+          data
+        }
+    })
+  })
+  console.log(data);
 });
 
 //Start server
