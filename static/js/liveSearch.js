@@ -2,9 +2,9 @@
 function getResults() {
     var form_input = $("input[name='search_term").val();
     response = $.post( "search", { search_term: form_input }, function( data ) {
-        console.log(data);
+        //console.log(data);
         jobId = data.jobId;
-        console.log(jobId)
+        //console.log(jobId)
         result_set = data.data;
         //console.log(result_set);
         $('#results').html(function(){
@@ -24,11 +24,7 @@ function getResults() {
 
 //Process selected item
 function selectedItem(selected) {
-    var array = [];
-    array.push({
-        title: selected
-    });
-    console.log(array);
+    $.post( "selected", {'title' : selected} );
 }
 
 //Bind click event

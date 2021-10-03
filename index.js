@@ -46,6 +46,11 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
   res.send(results);
 });
 
+//Select item endpoint
+app.post('/selected', parse.urlencoded(), async function(req, res) {
+  console.log(req.body);
+});
+
 //Start server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`)
