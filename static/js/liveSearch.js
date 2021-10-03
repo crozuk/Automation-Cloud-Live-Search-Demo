@@ -18,7 +18,7 @@ function getResults() {
         });
     }, "json");
     console.log(form_input)
-    var html = "<p>" + "Loading Search Results..." + "</p>";
+    var html = "<p>" + 'Loading Search Results...<img width="20px" src="https://i.gifer.com/VAyR.gif" style="position: fixed; margin-left: 5px;">' + "</p>";
     $("#results").html(html)
 };
 
