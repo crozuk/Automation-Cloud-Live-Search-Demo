@@ -57,9 +57,7 @@ app.post('/selected', parse.urlencoded(), async function(req, res) {
     },
     body: JSON.stringify({
         "key": "selected_site",
-        "data": {
-          data
-        }
+        data
     })
   })
   console.log(data);
