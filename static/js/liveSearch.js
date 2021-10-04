@@ -34,5 +34,7 @@ $(document).ready(function () {
         console.log(selectedResult);
         selectedItem(selectedResult);
         alert("Selected - " + selectedResult);
+        var html = "";
+        $("#results").html(html);
     }); 
 });
