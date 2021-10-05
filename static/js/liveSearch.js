@@ -26,7 +26,7 @@ function getResults() {
 function selectedItem(selected) {
     $.post( "selected", {'title' : selected}, function(data){
         screenshotBase = data;
-        $("#results").html("<img />");
+        $("#results").html("<img id='screenshot' />");
         $("#results img").attr('src','data:image/png;base64, ' + screenshotBase)
     } );
 }

@@ -16,6 +16,6 @@ body {
     cursor: pointer;
     text-decoration: underline;
 }
-#results img {
+#results #screenshot {
     width: 100%;
 }
