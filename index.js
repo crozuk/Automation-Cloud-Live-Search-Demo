@@ -64,9 +64,6 @@ app.post('/selected', parse.urlencoded(), async function(req, res) {
   await pollJobDone(job_id);
   await timeout(1000);
   var screenshot = await getJobScreenshot(job_id);
-  //res.writeHead(200, {
-  //  "content-type" : "image/png"
-  //})
   res.end(Buffer.from(screenshot, "binary"));
 });
 
