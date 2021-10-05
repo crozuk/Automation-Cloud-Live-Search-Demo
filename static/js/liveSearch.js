@@ -27,7 +27,7 @@ function selectedItem(selected) {
     $.post( "selected", {'title' : selected}, function(data){
         screenshotBase = data;
         $("#results").html("<img />");
-        $("#my_image").attr("src",URL.createObjectURL(screenshotBase));
+        $("#results img").attr('src','data:image/png;base64, ' + screenshotBase)
     } );
 }
 
