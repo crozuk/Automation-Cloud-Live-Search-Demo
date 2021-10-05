@@ -76,12 +76,14 @@ async function getJobScreenshot(jobId){
   });
   var body = await response.json();
   var latestScreenshot = body.data.reverse()[0];
+  console.log(latestScreenshot);
   var response = await fetch("https://api.automationcloud.net" + latestScreenshot.url, {
     headers: {
       authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
     }
   });
   var body = await response.buffer();
+  console.log(body);
   return body;
 };
 
