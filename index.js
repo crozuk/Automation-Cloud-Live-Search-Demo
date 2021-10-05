@@ -61,7 +61,32 @@ app.post('/selected', parse.urlencoded(), async function(req, res) {
     })
   })
   console.log(data);
+  await pollJobDone(job_id);
+  await timeout(1000);
+  var screenshot = await getJobScreenshot(job_id);
+  //res.writeHead(200, {
+  //  "content-type" : "image/png"
+  //})
+  res.end(Buffer.from(screenshot, "binary"));
 });
+
+//Get job screenshot
+async function getJobScreenshot(jobId){
+  var response = await fetch("https://api.automationcloud.net/jobs/" + jobId + "/screenshots", {
+    headers: {
+      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+    }
+  });
+  var body = await response.json();
+  var latestScreenshot = body.data.reverse()[0];
+  var response = await fetch("https://api.automationcloud.net" + latestScreenshot.url, {
+    headers: {
+      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+    }
+  });
+  var body = await response.buffer();
+  return body;
+};
 
 //Start server
 app.listen(port, () => {
@@ -81,6 +106,20 @@ async function pollJobOutput(jobId, outputKey){
     return pollJobOutput(jobId, outputKey)
   }
   return body;
+};
+//Poll for finish
+async function pollJobDone(jobId){
+  var response = await fetch("https://api.automationcloud.net/jobs/" + jobId, {
+    headers: {
+      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+    }
+  });
+  var body = await response.json();
+  if (body.state === "success" || body.state === "fail"){
+    return body;
+  }
+  await timeout(1000);
+  return pollJobDone(jobId);
 };
 //Timeout function
 function timeout(ms){

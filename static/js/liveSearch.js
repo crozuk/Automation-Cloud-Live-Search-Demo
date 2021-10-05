@@ -24,7 +24,11 @@ function getResults() {
 
 //Process selected item
 function selectedItem(selected) {
-    $.post( "selected", {'title' : selected} );
+    $.post( "selected", {'title' : selected}, function(data){
+        screenshotBase = data;
+        $("#results").html("<img />");
+        $("#my_image").attr("src",URL.createObjectURL(screenshotBase));
+    } );
 }
 
 //Bind click event
