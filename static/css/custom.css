@@ -16,3 +16,6 @@ body {
     cursor: pointer;
     text-decoration: underline;
 }
+#results img {
+    width: 100%;
+}
