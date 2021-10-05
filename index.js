@@ -48,7 +48,7 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
 
 //Select item endpoint
 app.post('/selected', parse.urlencoded(), async function(req, res) {
-  console.log(job_id);
+  //console.log(job_id);
   var data = req.body;
   var response = await fetch("https://api.automationcloud.net/jobs/" + job_id + "/inputs", {
     method: "post",
