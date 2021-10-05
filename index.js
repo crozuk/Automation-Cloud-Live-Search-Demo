@@ -83,8 +83,8 @@ async function getJobScreenshot(jobId){
     }
   });
   var body = await response.buffer();
-  console.log(body);
-  return body;
+  var bodyBase64 = body.toString('base64');
+  return bodyBase64;
 };
 
 //Start server
