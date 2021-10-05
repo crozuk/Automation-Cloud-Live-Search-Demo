@@ -38,7 +38,7 @@ $(document).ready(function () {
         console.log(selectedResult);
         selectedItem(selectedResult);
         alert("Selected - " + selectedResult);
-        var html = "";
+        var html = '<p>Loading screenshot...</p><img id="loader" src="https://i.gifer.com/VAyR.gif" />';
         $("#results").html(html);
     }); 
 });
