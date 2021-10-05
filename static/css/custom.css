@@ -19,3 +19,8 @@ body {
 #results #screenshot {
     width: 100%;
 }
+img#loader {
+    margin: 0 auto;
+    display: block;
+    height: 50px;
+}
