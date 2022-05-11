@@ -34,14 +34,14 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
       serviceId: "20ea0e52-1c0d-41ba-9ed2-4b50ca847f31",
       category: "test",
       input: {
-        search_term
+        "search_term": search_term
       }
     })
   })
   var body = await response.json();
   job_id = body.id;
   //console.log(body);
-  //console.log(job_id);
+  console.log(job_id);
   var results = await pollJobOutput(body.id, "SearchResults");
   res.send(results);
 });
