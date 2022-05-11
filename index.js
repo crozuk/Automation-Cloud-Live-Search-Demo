@@ -1,4 +1,4 @@
-// Enviroment Variables
+// Environment Variables
 require('dotenv').config();
 const app_secret = process.env.secret;
 
