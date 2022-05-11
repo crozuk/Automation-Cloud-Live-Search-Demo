@@ -1,8 +1,6 @@
 // Enviroment Variables
 require('dotenv').config();
 const app_secret = process.env.secret;
-//Log App Secret Key
-console.log(app_secret);
 
 //Express server
 var express = require('express');
@@ -29,7 +27,8 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
   var response = await fetch("https://api.automationcloud.net/jobs", {
     method: "post",
     headers: {
-      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64"),
+      'Content-Type' : 'application/json'
     },
     body: JSON.stringify({
       serviceId: "20ea0e52-1c0d-41ba-9ed2-4b50ca847f31",
@@ -41,6 +40,7 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
   })
   var body = await response.json();
   job_id = body.id;
+  //console.log(body);
   //console.log(job_id);
   var results = await pollJobOutput(body.id, "SearchResults");
   res.send(results);
