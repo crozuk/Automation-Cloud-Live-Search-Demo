@@ -11,7 +11,7 @@ function getResults() {
             var html = '';
             $.each(result_set, function(i,item){
                 html += '<h3>' + item.title + '</h3>';
-                html += '<p>' + item.snippet + '</p>';
+                html += '<img src="' + item.image + '"/>';
                 html += '<a target="_blank" href ="' + item.url + '">' + item.url + "</a>";
             });
             return html;
@@ -23,21 +23,21 @@ function getResults() {
 };
 
 //Process selected item
-function selectedItem(selected) {
-    $.post( "selected", {'title' : selected}, function(data){
-        screenshotBase = data;
-        $("#results").html("<img id='screenshot' />");
-        $("#results img").attr('src','data:image/png;base64, ' + screenshotBase)
-    } );
-}
+// function selectedItem(selected) {
+//     $.post( "selected", {'title' : selected}, function(data){
+//         screenshotBase = data;
+//         $("#results").html("<img id='screenshot' />");
+//         $("#results img").attr('src','data:image/png;base64, ' + screenshotBase)
+//     } );
+// }
 
 //Bind click event
-$(document).ready(function () {
-    $("#results").on("click", "h3", function(){
-        var selectedResult = $(this).text();
-        console.log(selectedResult);
-        selectedItem(selectedResult);
-        var html = '<p>Loading screenshot for ' + selectedResult + '...</p><br><img id="loader" src="https://i.gifer.com/VAyR.gif" />';
-        $("#results").html(html);
-    }); 
-});
+// $(document).ready(function () {
+//     $("#results").on("click", "h3", function(){
+//         var selectedResult = $(this).text();
+//         console.log(selectedResult);
+//         selectedItem(selectedResult);
+//         var html = '<p>Loading screenshot for ' + selectedResult + '...</p><br><img id="loader" src="https://i.gifer.com/VAyR.gif" />';
+//         $("#results").html(html);
+//     }); 
+// });

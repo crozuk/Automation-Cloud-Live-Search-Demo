@@ -12,10 +12,10 @@ body {
     padding-top: 10px;
     padding-bottom: 20px;
 }
-#results h3 {
+/* #results h3 {
     cursor: pointer;
     text-decoration: underline;
-}
+} */
 #results #screenshot {
     width: 100%;
 }

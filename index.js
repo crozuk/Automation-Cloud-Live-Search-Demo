@@ -47,45 +47,45 @@ app.post('/search', parse.urlencoded(), async function(req, res) {
 });
 
 //Select item endpoint
-app.post('/selected', parse.urlencoded(), async function(req, res) {
-  //console.log(job_id);
-  var data = req.body;
-  var response = await fetch("https://api.automationcloud.net/jobs/" + job_id + "/inputs", {
-    method: "post",
-    headers: {
-      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
-    },
-    body: JSON.stringify({
-        "key": "selected_site",
-        data
-    })
-  })
-  console.log(data);
-  await pollJobDone(job_id);
-  await timeout(1000);
-  var screenshot = await getJobScreenshot(job_id);
-  res.end(Buffer.from(screenshot, "binary"));
-});
+// app.post('/selected', parse.urlencoded(), async function(req, res) {
+//   //console.log(job_id);
+//   var data = req.body;
+//   var response = await fetch("https://api.automationcloud.net/jobs/" + job_id + "/inputs", {
+//     method: "post",
+//     headers: {
+//       authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+//     },
+//     body: JSON.stringify({
+//         "key": "selected_site",
+//         data
+//     })
+//   })
+//   console.log(data);
+//   await pollJobDone(job_id);
+//   await timeout(1000);
+//   var screenshot = await getJobScreenshot(job_id);
+//   res.end(Buffer.from(screenshot, "binary"));
+// });
 
-//Get job screenshot
-async function getJobScreenshot(jobId){
-  var response = await fetch("https://api.automationcloud.net/jobs/" + jobId + "/screenshots", {
-    headers: {
-      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
-    }
-  });
-  var body = await response.json();
-  var latestScreenshot = body.data.reverse()[0];
-  //console.log(latestScreenshot);
-  var response = await fetch("https://api.automationcloud.net" + latestScreenshot.url, {
-    headers: {
-      authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
-    }
-  });
-  var body = await response.buffer();
-  var bodyBase64 = body.toString('base64');
-  return bodyBase64;
-};
+// //Get job screenshot
+// async function getJobScreenshot(jobId){
+//   var response = await fetch("https://api.automationcloud.net/jobs/" + jobId + "/screenshots", {
+//     headers: {
+//       authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+//     }
+//   });
+//   var body = await response.json();
+//   var latestScreenshot = body.data.reverse()[0];
+//   //console.log(latestScreenshot);
+//   var response = await fetch("https://api.automationcloud.net" + latestScreenshot.url, {
+//     headers: {
+//       authorization: "Basic " + Buffer.from(app_secret + ":").toString("base64")
+//     }
+//   });
+//   var body = await response.buffer();
+//   var bodyBase64 = body.toString('base64');
+//   return bodyBase64;
+// };
 
 //Start server
 app.listen(port, () => {
