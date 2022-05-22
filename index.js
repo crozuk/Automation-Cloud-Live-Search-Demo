@@ -5,7 +5,7 @@ const app_secret = process.env.secret;
 //Express server
 var express = require('express');
 var app = express();
-const port = 3001;
+const port = process.env.PORT || 8080;
 
 //Parse and Fetch packages
 var parse = require('body-parser');
