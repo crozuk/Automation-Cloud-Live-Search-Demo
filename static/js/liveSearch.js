@@ -11,7 +11,7 @@ function getResults() {
             var html = '';
             $.each(result_set, function(i,item){
                 html += '<h3>' + item.title + '</h3>';
-                html += '<img src="' + item.image + '"/>';
+                html += '<img src="https://digitalcontent.api.tesco.com' + item.image + '?h=255&w=255"/>';
                 html += '<a target="_blank" href ="' + item.url + '">' + item.url + "</a>";
             });
             return html;
