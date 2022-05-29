@@ -9,6 +9,10 @@
   },
   "scripts": {
     "test": "node test.js",
+    "run-dev": "nodemon index.js",
     "start": "node index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
