@@ -12,10 +12,9 @@ body {
     padding-top: 10px;
     padding-bottom: 20px;
 }
-/* #results h3 {
-    cursor: pointer;
-    text-decoration: underline;
-} */
+.results ul li:first-of-type {
+    display: none;
+}
 #results #screenshot {
     width: 100%;
 }
