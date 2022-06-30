@@ -1,4 +1,9 @@
 //Get search results from user input 
+/**
+ * The function gets the value of the search term from the form, sends it to the server, and then
+ * displays the results in the results div
+ * @returns the html of the results.
+ */
 function getResults() {
     var form_input = $("input[name='search_term").val();
     response = $.post( "search", { search_term: form_input }, function( data ) {
