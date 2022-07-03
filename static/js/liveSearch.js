@@ -26,3 +26,11 @@ function getResults() {
     var html = "<p>" + 'Loading Search Results...<img width="20px" src="https://i.gifer.com/VAyR.gif" style="position: fixed; margin-left: 5px;">' + "</p>";
     $("#results").html(html)
 };
+
+/* This is a jQuery function that is called when the document is ready. It is looking for a click event
+on the h3 tag. FOR LATER USE */
+$(document).ready(function () {
+    $("#results").on("click", "h3", function(){
+        alert("You clicked on the title of a product");
+    }); 
+});
