@@ -31,6 +31,7 @@ function getResults() {
 on the h3 tag. FOR LATER USE */
 $(document).ready(function () {
     $("#results").on("click", "h3", function(){
-        alert("You clicked on the title of a product");
+        var title = $(this).text();
+        alert(title);
     }); 
 });
